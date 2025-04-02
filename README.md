@@ -17,3 +17,5 @@ Geolocalización del cliente
 Requisitos
 
 Asegúrate de tener instaladas las siguientes dependencias:
+
+pip install flask-socketio geopy pynput pyautogui requests flask folium cryptography socketio keyboard pynput opencv-python pillow
