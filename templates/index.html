@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipos Infectados</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script> 
+    <style>
+        body {
+           
+            color: #111112;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-shadow: 0px 0px 10px #111112;
+        }
+
+        .map-container {
+            border: 2px solid #111112
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px #111112;
+            margin-bottom: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
+       .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .btn-navegar {
+            background-color: #007bff;
+            display: inline-block; 
+            margin-right: 15px; 
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        
+        .btn-navegar:hover {
+            background-color: #0056b3;
+        }
+
+    
+    </style>
+</head>
+<body>
+    <h2>Mapa de Equipos Infectados</h2>
+    <div class="map-container">
+        <iframe src="/static/mapa.html"></iframe>
+    </div>
+
+    <div class="btn-container">
+        <a href="/panel" class="btn-navegar">Panel de Administración Remota</a>
+        <a href="/logout" class="btn-navegar">Salir</a>
+    </div>
+
+    <script>
+        var socket = io.connect("http://" + document.domain + ":5000");
+        var markers = {}; // Almacena los marcadores por IP
+
+        socket.on("actualizar_mapa", function(clientes) {
+            location.reload(); // Recargar página cuando el mapa se actualice
+            for (var ip in clientes) {
+                var cliente = clientes[ip];
+                var coords = cliente.latlon.split(",");
+                var lat = parseFloat(coords[0]);
+                var lon = parseFloat(coords[1]);
+                var bandera_url = `https://flagcdn.com/w40/${cliente.pais.toLowerCase()}.png`;
+
+                // Verifica si el marcador ya existe
+                if (!markers[ip]) {
+                    var popup_content = `
+                        <strong>IP Pública:</strong> ${cliente.ip_publica} <br>
+                        <strong>País:</strong> <img src="${bandera_url}" alt="Bandera"><br>
+                        <strong>IP Privada:</strong> ${cliente.ip}<br>
+                        <strong>Equipo:</strong> ${cliente.nombre_equipo}<br>
+                        <strong>Sistema:</strong> ${cliente.sistema} ${cliente.version}
+                    `;
+
+                    var marker = L.marker([lat, lon])
+                        .bindPopup(popup_content)
+                        .addTo(map);
+
+                    markers[ip] = marker; // Guarda el marcador
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
