@@ -22,12 +22,19 @@ pip install flask-socketio geopy pynput pyautogui requests flask folium cryptogr
 
 # Estructura del Proyecto
 Simple - C2 /
+
 │── static
+
   └────icono.png
+  
 │── templates
+
     └────login.html
     └────index.html
     └────panel.html
+    
 │── app.py  # Servidor Flask-SocketIO
+
 │── client.py  # Cliente Python
+
 └── README.md  # Documentación
