@@ -24,8 +24,10 @@ pip install flask-socketio geopy pynput pyautogui requests flask folium cryptogr
 Simple - C2 /
 
 │── static
+
     └──icono.png  
 │── templates
+
     └──login.html
     └──index.html
     └──panel.html
