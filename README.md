@@ -45,6 +45,9 @@ Inicia el servidor:
 
 python app.py
 
+Usuario 1: admin Password 1: admin
+Usuario 2: usuario Password 2: password
+
 Ejecuta el cliente en la máquina objetivo:
 
 python client.py
@@ -54,5 +57,13 @@ python client.py
 # Advertencia
 
 Este proyecto es solo con fines educativos y de investigación. No se debe utilizar en sistemas sin autorización. El uso indebido puede tener consecuencias legales.
+
+# Video Demo
+
+https://github.com/user-attachments/assets/4621c604-a8a7-4359-88bc-9fac7f5ad6a1
+
+
+
+
 
 
