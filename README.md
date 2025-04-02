@@ -4,15 +4,15 @@
 
 Este es un sistema de Comando y Control (C2) desarrollado en Python utilizando Flask-SocketIO. Permite la administración remota de clientes, ofreciendo funcionalidades como:
 
-Ejecución de comandos en el cliente
+. Ejecución de comandos en el cliente
 
-Captura de pantalla remota
+. Captura de pantalla remota
 
-Keylogger
+. Keylogger
 
-Transferencia de archivos
+. Transferencia de archivos
 
-Geolocalización del cliente
+. Geolocalización del cliente
 
 # Requisitos
 
@@ -41,14 +41,15 @@ Simple - C2 /
 
 # Uso
 
-Inicia el servidor:
+. Inicia el servidor:
 
 python app.py
 
 Usuario 1: admin Password 1: admin
+
 Usuario 2: usuario Password 2: password
 
-Ejecuta el cliente en la máquina objetivo:
+. Ejecuta el cliente en la máquina objetivo:
 
 python client.py
 
