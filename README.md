@@ -38,3 +38,21 @@ Simple - C2 /
 │── client.py  # Cliente Python
 
 └── README.md  # Documentación
+
+# Uso
+
+Inicia el servidor:
+
+python app.py
+
+Ejecuta el cliente en la máquina objetivo:
+
+python client.py
+
+# Controla la máquina desde el servidor enviando comandos.
+
+# Advertencia
+
+Este proyecto es solo con fines educativos y de investigación. No se debe utilizar en sistemas sin autorización. El uso indebido puede tener consecuencias legales.
+
+
