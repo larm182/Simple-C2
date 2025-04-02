@@ -25,13 +25,13 @@ Simple - C2 /
 
 │── static
 
-  └────icono.png
+  └──icono.png
   
 │── templates
 
-    └────login.html
-    └────index.html
-    └────panel.html
+    └──login.html
+    └──index.html
+    └──panel.html
     
 │── app.py  # Servidor Flask-SocketIO
 
